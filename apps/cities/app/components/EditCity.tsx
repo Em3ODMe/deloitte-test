@@ -4,7 +4,7 @@
 import { Button, Label, Modal, ModalBody, ModalHeader, TextInput } from "flowbite-react";
 import { useContext, useState } from "react";
 import { ClientContext } from "./ClientSetup";
-import { type EventToastType, EventToast } from "./EventToast";
+import type { EventToastType } from "./EventToast";
 
 type EditCityProps = {
     cityId: string;

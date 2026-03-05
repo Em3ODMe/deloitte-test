@@ -60,9 +60,6 @@ importers:
         specifier: ^4.1.13
         version: 4.3.6
     devDependencies:
-      '@em3odme/db-model':
-        specifier: 0.1.3
-        version: 0.1.3(@types/better-sqlite3@7.6.13)(@types/react@19.2.2)(better-sqlite3@9.6.0)(react@19.2.0)
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.3.1
@@ -76,8 +73,11 @@ importers:
         specifier: ^0.20.14
         version: 0.20.18
       hono-utils:
-        specifier: ^0.3.2
-        version: 0.3.2
+        specifier: ^0.3.9
+        version: 0.3.9
+      model-blueprint:
+        specifier: 0.1.5
+        version: 0.1.5
       tsx:
         specifier: ^4.7.1
         version: 4.21.0
@@ -347,10 +347,6 @@ packages:
   '@csstools/css-tokenizer@4.0.0':
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
     engines: {node: '>=20.19.0'}
-
-  '@em3odme/db-model@0.1.3':
-    resolution: {integrity: sha512-dOEMC+nPzosUadPLCpXwYSkORyqAepjMz4u/bB0v+4lZRoXdAYNtu5x+bmNCHcVJ0KnEqOSw34MHHU4QoRFZkA==}
-    engines: {node: '>=18.0.0'}
 
   '@emnapi/core@1.8.1':
     resolution: {integrity: sha512-AvT9QFpxK0Zd8J0jopedNm+w/2fIzvtPKPjqyw9jwvBaReTTqPBk9Hixaz7KbjimP+QNz605/XnjFcDAL2pqBg==}
@@ -2631,8 +2627,8 @@ packages:
     resolution: {integrity: sha512-w3zi/WFMNCrOfNmDBNZ7AjEHvugLDDkNoZ1YPSPk+0I5M02LKgCNlGVQZhVGmgaryCttJgt/cDAWQUE+aywtPQ==}
     engines: {node: '>=18.0.0'}
 
-  hono-utils@0.3.2:
-    resolution: {integrity: sha512-H5QcFDjn4teeVSrOR4WwPE46CrD8cniyG+87AAdvsPscd1fRx//gxKLEDVBQVkEZ87DxA+HYFiuTFBfuNEElmg==}
+  hono-utils@0.3.9:
+    resolution: {integrity: sha512-PIV0inZ6yt1PA5jDRR1EDQW9bsyEv+O8C6fenlWkLsIP6AkCcIt1Gaiq/qB9U7VV7CyVDlx3Vsd66iKsCVvhog==}
     engines: {node: '>=18.0.0'}
 
   hono@4.11.9:
@@ -3030,6 +3026,10 @@ packages:
 
   mkdirp-classic@0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}
+
+  model-blueprint@0.1.5:
+    resolution: {integrity: sha512-KshY80VuYuE3m3G5s2sZGm/wswX3eIiG/qyVrwhL728ENRp9CbLULLnHctjczgMV2kZxJD9L3bEPxBnFlb9pgg==}
+    engines: {node: '>=18.0.0'}
 
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
@@ -4033,40 +4033,6 @@ snapshots:
   '@csstools/css-syntax-patches-for-csstree@1.0.27': {}
 
   '@csstools/css-tokenizer@4.0.0': {}
-
-  '@em3odme/db-model@0.1.3(@types/better-sqlite3@7.6.13)(@types/react@19.2.2)(better-sqlite3@9.6.0)(react@19.2.0)':
-    dependencies:
-      '@paralleldrive/cuid2': 3.3.0
-      drizzle-orm: 0.30.10(@types/better-sqlite3@7.6.13)(@types/react@19.2.2)(better-sqlite3@9.6.0)(react@19.2.0)
-      hierarchical-area-logger: 0.2.7
-      hono: 4.11.9
-      zod: 4.3.6
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@neondatabase/serverless'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@types/better-sqlite3'
-      - '@types/pg'
-      - '@types/react'
-      - '@types/sql.js'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - better-sqlite3
-      - bun-types
-      - expo-sqlite
-      - knex
-      - kysely
-      - mysql2
-      - pg
-      - postgres
-      - react
-      - sql.js
-      - sqlite3
 
   '@emnapi/core@1.8.1':
     dependencies:
@@ -6172,7 +6138,7 @@ snapshots:
     dependencies:
       '@paralleldrive/cuid2': 3.3.0
 
-  hono-utils@0.3.2:
+  hono-utils@0.3.9:
     dependencies:
       '@paralleldrive/cuid2': 3.3.0
       hierarchical-area-logger: 0.2.7
@@ -6563,6 +6529,11 @@ snapshots:
   minimist@1.2.8: {}
 
   mkdirp-classic@0.5.3: {}
+
+  model-blueprint@0.1.5:
+    dependencies:
+      '@paralleldrive/cuid2': 3.3.0
+      zod: 4.3.6
 
   mrmime@2.0.1: {}
 

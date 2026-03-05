@@ -1,4 +1,6 @@
-import { createModelFactory, initProcedure, queryUtils } from "@em3odme/db-model";
+import { createModelFactory, initProcedure } from "model-blueprint";
+import { dropQuery } from 'model-blueprint/dropQuery';
+import { withCursor } from 'model-blueprint/withCursor';
 import { createId } from '@paralleldrive/cuid2';
 import { eq, lt, desc } from "drizzle-orm";
 import { z } from "zod";
@@ -21,7 +23,7 @@ export const updateInput = z.object({
 })
 
 const proc = initProcedure<DBModelContext>()
-    .use(queryUtils.dropQueryMiddleware(dropMessages))
+    .use(dropQuery(dropMessages))
 // .use(async ({ ctx, input }) => {
 //     if (ctx.authHeader !== ctx.expectedAuthHeader) throw ctx.drop('notAuthenticated', 401);
 //     return { ...ctx, input };
@@ -77,7 +79,7 @@ const list = proc
         const entries = await ctx.db.select().from(cities).where(cursor
             ? lt(cities.createdAt, cursor)
             : undefined).orderBy(desc(cities.createdAt)).limit(limit);
-        return queryUtils.withCursor(entries, 'createdAt', limit);
+        return withCursor(entries, 'createdAt', limit);
     });
 
 export const dbModel = createModelFactory({
